@@ -50,12 +50,12 @@
             <h2 class="title">About me</h2>
             <div class="about-content">
                 <div class="column left">
-                    <img src="ABOUT IMG.png" alt="">
+                    <img src="./reference/ABOUT IMG.png" alt="">
                 </div>
                 <div class="column right">
                     <div class="text">I'm Sandeep and I'm a <span class="typing-2"></span></div>
                     <p>I am an enthusiastic, self-motivated, reliable, responsible and hard working person.I am a mature team worker and adaptable to all challenging situations.I can work well both in a team environment as well as using own initiative.I can work well under pressure and adhere to strict deadlines.</p>
-                    <a href="CV/20EE8102_SANDEEP_SAHOO_CV.pdf"target="_blank">Download CV</a>
+                    <a href="./reference/CV/20EE8102_SANDEEP_SAHOO_CV.pdf"target="_blank">Download CV</a>
                 </div>
             </div>
         </div>
@@ -175,20 +175,20 @@
                 </div>
                 <div class="column right">
                     <div class="text">Message me</div>
-                    <form id = "form" method="post">
+                    <form onsubmit="sendmail(); return false;">
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" placeholder="Name" required>
+                                <input type="text" id="Name" placeholder="Name" required>
                             </div>
                             <div class="field email">
-                                <input type="email" placeholder="Email" required>
+                                <input type="email" id="Email" placeholder="Email" required>
                             </div>
                         </div>
                         <div class="field">
-                            <input type="text" placeholder="Subject" required>
+                            <input type="text" id ="Subject" placeholder="Subject" required>
                         </div>
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                            <textarea cols="30" rows="10" id="Message" placeholder="Message.." required></textarea>
                         </div>
                         <div class="button-area">
                             
@@ -205,52 +205,36 @@
         <span>Created By <a href="sandeepsahoo865@gmail.com">Sandeep Sahoo</a> | <span class="far fa-copyright"></span> 2022 All rights reserved.</span>
     </footer>
 
-    <script src="https://smtpjs.com/v3/smtp.js">
-    </script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
     <script>
-        /*function sendmail() {
+        function sendmail() {
 
-            var name = document.getElementById('field name').value;
-            var email = document.getElementById('field email').value;
-            var subject = document.getElementById('field').value;
-            var message = document.getElementById('field textarea').value;
-            var body = 'name: ' +name + '<br/>email: ' + email + '<br/> subject' +subject + '<br/> message' + message;
+            var name = document.getElementById('Name').value;
+            var subject = document.getElementById('Subject').value;
+            var message = document.getElementById('Message').value;
+            var body = 'name: ' +name + '<br/>email: ' +subject + '<br/> message' + message;
 
-            email.send({
+            Email.send({
                 
                 Host : "smtp.elasticemail.com",
                 Username : "portfolioenquiries00@gmail.com",
                 Password : "45CD5D1B61D095E4F9AF649ED53ED6548E22",
                 To : 'portfolioenquiries00@gmail.com',
-                From : email,
+                From : 'portfolioenquiries00@gmail.com',
                 Subject : subject,
                 Body : body,
-            }).then(
-                message => alert(message)
+            }).then((value) => {
+                if(value == "OK") {
+                    alert("Email has been sent successfully.")
+                }
+                else {
+                    alert(value)
+                }
+            }
             )
-        }*/
+        }
         
-        var btn = document.getElementById('button-area');
-        btn.addEventListener('click', function(e){
-            e.preventDefault()
-            var name = document.getElementById('field name').value;
-            var email = document.getElementById('field email').value;
-            var subject = document.getElementById('field').value;
-            var message = document.getElementById('field textarea').value;
-            var body = 'name: ' +name + '<br/>email: ' + email + '<br/> subject' +
-            subject + '<br/> message' + message;
-            email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "portfolioenquiries00@gmail.com",
-    Password : "45CD5D1B61D095E4F9AF649ED53ED6548E22",
-    To : 'portfolioenquiries00@gmail.com',
-    From : email,
-    Subject : subject,
-    Body : body,
-}).then(
-  message => alert(message)
-);
-        })
 
     </script>
     
