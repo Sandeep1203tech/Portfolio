@@ -213,7 +213,8 @@
             var name = document.getElementById('Name').value;
             var subject = document.getElementById('Subject').value;
             var message = document.getElementById('Message').value;
-            var body = 'name: ' +name + '<br/>email: ' +subject + '<br/> message' + message;
+            var email = document.getElementById('Email').value;
+            var body = 'Name: ' +name + '<br/>Email: ' +email + '<br/>Subject: '+subject + '<br/> Message: ' + message;
 
             Email.send({
                 
